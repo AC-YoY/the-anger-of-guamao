@@ -1,10 +1,12 @@
 <template>
+    <transition name="fade">
     <div class="hello">
         <button @click="change_id">更换参数</button>
         <p>sub路由</p>
         <p>{{ parsed_id }}</p>
         <p>{{ num }}</p>
     </div>
+    </transition>
 </template>
 
 <script>
@@ -25,16 +27,17 @@
             console.log( 'this',this )
         },
         // 方案1  route 变化后
-        watch: {
-            '$route' ( to, from ) {
-                this.init_data()
-            }
-        },
-        // 方案2  route 变化前
-//        beforeRouteUpdate ( to, from, next ) {
-//            this.init_data( )
-//            next()
+//        watch: {
+//            '$route' ( to, from ) {
+//                this.init_data()
+//            }
 //        },
+        // 方案2  route 变化前
+        beforeRouteUpdate ( to, from, next ) {
+            console.log( 'to', to.matched, from.matched )
+            this.init_data( )
+            next()
+        },
         computed: {
             dynamic_id () {
                 return this.$route.params.num
@@ -49,9 +52,10 @@
             },
             change_id () {
                 const rd = Math.round( Math.random() * 100 )
+//                默认传参是 path
 //                this.$router.push( "/main/sub/" + rd )
-//                this.$router.push( { name: 'sub', params: { num: '345' } } )
-                this.$router.push( { name: 'sub', query: { plan: 'private' } } )
+                this.$router.push( { name: 'sub', params: { num: rd } } )
+//                this.$router.push( { name: 'sub', query: { plan: 'private' } } )
 
             },
         }
