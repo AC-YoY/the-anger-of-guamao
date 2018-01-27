@@ -5,13 +5,13 @@ import app from './module/app'
 Vue.use( Vuex )
 // 使用方法在 HelloWorld.vue 文件中
 export default new Vuex.Store( {
-    state: {
+    state: {        //  这是状态
         user: {
             permission: '',
         },
         user_group: []
     },
-    mutations: {
+    mutations: {    //  这是操作状态的手段
     /*
         这是更改 vuex 中状态的唯一方式
         无法直接调用 mutation 方法，更像是注册
@@ -26,11 +26,11 @@ export default new Vuex.Store( {
         * */
         set_user ( state, data ) {
             //  仅覆盖同名属性，不会变更__ob__属性
-            state.user = { ...state.obj, ...data }
+            state.user = { ...state.user, ...data }
         },
-        set_user_asyn ( state, data ) {
+        set_user_asyn ( state, data ) { //  错误示范！mutation不允许有异步操作
             setTimeout( () => {
-                state.user = { ...state.obj, ...data }
+                state.user = { ...state.user, ...data }
             }, 1000)
         },
 

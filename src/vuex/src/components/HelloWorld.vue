@@ -48,6 +48,8 @@
 //                    ...user
 //                } )
 //            }, 1000 )
+//            mutation中不允许出现异步方法，所以下面这个会报错
+//            this.$store.commit( 'set_user_asyn', user )
 //            action 使用方法
             this.$store.dispatch( 'set_user_asyn', user )
         },
@@ -60,7 +62,7 @@
 //            ] ),
             ...mapState( {          // 复杂配置
                 user: 'user',
-                user_group: {
+                user_group: {       // 这是不行的
                     get () {},
                     set () {}
                 }

@@ -31,6 +31,8 @@ const router = new Router( {
                     path: 'sub/:num(\\d+)?',
                     meta: { is_sub: true },
                     props: {
+                        // 有的人不喜欢 this.$route.params.key 这样调用,
+                        //  将动态参数改成了 props 的形式
                         default: true,
                         'another-view': true,
                         'another-view2': true,
@@ -40,6 +42,7 @@ const router = new Router( {
                         'another-view6': true,
                     },
                     components: {
+                        // { router-name: component }
                         default: Sub,
                         'another-view': Sub,
                         'another-view2': Sub,
