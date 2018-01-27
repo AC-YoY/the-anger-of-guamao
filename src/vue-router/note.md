@@ -130,3 +130,11 @@ beforeRouteLeave (to, from, next) {
 ```
 
 #### 路由的动画
+
+#### 局限性
+
+> vue-router不能跳转到不属于它管理的路由
+> 如果你想访问一个静态资源，那么使用vue-router来push一个正确的url是不行的
+> 解决方案是使用window.location.href来进行跳转
+
+

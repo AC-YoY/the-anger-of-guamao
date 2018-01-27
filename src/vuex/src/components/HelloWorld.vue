@@ -60,10 +60,10 @@
 //                'user',
 //                'user_group'
 //            ] ),
-            ...mapState( {          // 复杂配置
+            ...mapState( {          // 复杂配置 只能用来改名字！？！？
                 user: 'user',
-                user_group: {       // 这是不行的
-                    get () {},
+                user_group: {       // 用了mapState之后就不能get/set了
+                    get () {},      // 这是 错误 的！
                     set () {}
                 }
             } ),
