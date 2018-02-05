@@ -17,6 +17,9 @@
                 type: Boolean,
                 default: false,
             },
+            label: {
+                type: String,
+            }
         },
         data () {
             return {
@@ -33,13 +36,18 @@
             // },
             handleClickVModel () {
                 if ( !this.disable ) {
+                    console.log( 'child 改变了' )
+                    this.status = !this.status
                     // this.value = !this.value
                     // this.$emit( 'input', this.value )
-                    // this.$emit( 'click', this.value )
-
-                    console.log( 'bus触发了' )
-                    bus.$emit( 'input', this.value )
-                    bus.$emit( 'click', this.value )
+                    this.$emit( 'change', this.status )
+                    this.$emit( 'input', {
+                        value:  this.label,
+                        status: this.status
+                    } )
+                    // console.log( 'bus触发了' )
+                    // bus.$emit( 'input', this.status )
+                    // bus.$emit( 'click', this.status )
                 }
             }
         },
@@ -47,7 +55,7 @@
             disableClass () {
                 return {
                     'disable-con': this.disable,
-                    'bg-color': this.value
+                    'bg-color': this.status
                 }
             }
         }
