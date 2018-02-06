@@ -1,22 +1,21 @@
 <template>
     <div class="hello">
         <h2>{{ msg }}</h2>
-        <input v-model="inputVal"></input>
         <!--
-            1. click事件
-            2. disable
-        -->
-        <!--
-            v-model="xxx"
-            props: value
+            props: value,
             emit: input
         -->
+        <!--<input v-model="inputVal"></input>-->
+
         <div class="con">
-            <ChocButton >
-                <!--@click="click"-->
-                <!--:disable="true"-->
-                <!--:value.sync="xxx"-->
+            <ChocButton @click="click"
+            >
+                <!--:disable="disable"-->
+                <!--@changeDisable="changeDis"-->
+                <!--:value="user"-->
+                <!--v-model="user"-->
                 <!--value="xxx" @input="changeValue"-->
+                <!--:value.sync="user"-->
                 choc-button
             </ChocButton>
 
@@ -43,6 +42,10 @@
                 val:        'xxx',
                 inputVal:   'ddd',
                 disable:    true,
+                user: {
+                    name: 'AA',
+                    age: 10,
+                }
             }
         },
         methods: {
@@ -51,6 +54,9 @@
             },
             changeDis ( val ) {
                 this.disable = val
+            },
+            clickccc () {
+                console.log( 'ccc' )
             }
         },
         watch: {

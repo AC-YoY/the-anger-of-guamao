@@ -9,13 +9,13 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: 'Main',
-            component: Main
+            name: 'Btn',
+            component: MainBtn
         },
         {
             path: '/btn',
-            name: 'Btn',
-            component: MainBtn
+            name: 'Main',
+            component: Main
         }
     ]
 })
