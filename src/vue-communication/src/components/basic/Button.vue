@@ -46,7 +46,7 @@
         mounted () {
             setTimeout( () => {
 //                this.$emit( 'changeDisable', false )
-                    this.value.name = 'props漏洞'
+//                    this.value.name = 'props漏洞'
 //                this.$emit( 'input', {
 //                    name: '改了',
 //                    age:  99,
