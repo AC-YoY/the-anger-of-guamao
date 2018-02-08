@@ -1,6 +1,10 @@
 <template>
     <div class="hello">
         <h2>{{ msg }}</h2>
+        <!--slot-->
+        <!--emit-->
+        <!--props-->
+
         <!--
             props: value,
             emit: input
@@ -8,14 +12,18 @@
         <!--<input v-model="inputVal"></input>-->
 
         <div class="con">
+
+            <!--<button>点击</button>-->
+            <!--<button>取消</button>-->
+
             <ChocButton @click="click"
             >
+                <!--:value.sync="user"-->
+                <!--v-model="user"-->
                 <!--:disable="disable"-->
                 <!--@changeDisable="changeDis"-->
                 <!--:value="user"-->
-                <!--v-model="user"-->
                 <!--value="xxx" @input="changeValue"-->
-                <!--:value.sync="user"-->
                 choc-button
             </ChocButton>
 
@@ -55,21 +63,18 @@
             changeDis ( val ) {
                 this.disable = val
             },
-            clickccc () {
-                console.log( 'ccc' )
-            }
         },
         watch: {
             inputVal ( a ) {
                 console.log( 'a', a  )
             }
         },
-        created () {
-            //  跳线
-            bus.$on( 'click', val => {
-                this.click()
-            } )
-        },
+//        created () {
+//            //  跳线
+//            bus.$on( 'click', val => {
+//                this.click()
+//            } )
+//        },
         mounted () {
             console.log( 'this', this )
         }

@@ -1,9 +1,7 @@
 <template>
     <div class="choc-btn-con" :class="disableClass"
+         @click="handleClick"
     >
-         <!--@click="handleClick"-->
-         <!--:disable="disable"-->
-
         <slot></slot>
         <!--<p>{{value.name}}</p>-->
         <!--<p>{{value.age}}</p>-->
@@ -12,9 +10,9 @@
 
 <script>
     import bus from '../bus/bus'
+
     export default {
         name: "ChocButton",
-
         props: {
             disable: {
                 type: Boolean,
@@ -30,8 +28,11 @@
 //                        name: 'syncchange',
 //                        age: 22,
 //                    } )
-                    // bus.$emit( 'click' )
-                    // this.$emit( 'update:value', '更改过后的value' )
+//                     bus.$emit( 'click' )
+//                     this.$emit( 'input', {
+//                        name: 'v-model更改',
+//                        age: 22,
+//                    } )
                 }
             }
 
@@ -45,14 +46,12 @@
         },
         mounted () {
             setTimeout( () => {
-//                this.$emit( 'changeDisable', false )
+                this.$emit( 'changeDisable', false )
 //                    this.value.name = 'props漏洞'
 //                this.$emit( 'input', {
 //                    name: '改了',
 //                    age:  99,
 //                } )
-
-
             }, 1000)
 
         }
